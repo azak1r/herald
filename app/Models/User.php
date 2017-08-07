@@ -1,6 +1,6 @@
 <?php
 
-namespace nullx27\Herald;
+namespace nullx27\Herald\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;

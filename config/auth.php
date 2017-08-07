@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => nullx27\Herald\User::class,
+            'model' => nullx27\Herald\Models\User::class,
         ],
 
         // 'users' => [

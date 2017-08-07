@@ -13,13 +13,13 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(nullx27\Herald\Models\User::class, function (Faker $faker) {
+$factory->define(nullx27\Herald\Models\Event::class, function (Faker $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
+        'title' => $faker->text(30),
+        'description' => $faker->text(150),
+        'due' => \Carbon\Carbon::now()->addDay(rand(1,10)),
+        'user_id' => 1,
     ];
 });

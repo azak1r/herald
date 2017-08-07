@@ -20,3 +20,11 @@ Vue.component('example', require('./components/Example.vue'));
 const app = new Vue({
     el: '#app'
 });
+
+
+
+const flatpickr = require("flatpickr");
+
+flatpickr(".flatpickr", {
+    enableTime: true
+});
