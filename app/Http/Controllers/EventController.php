@@ -3,8 +3,10 @@
 namespace nullx27\Herald\Http\Controllers;
 
 use Carbon\Carbon;
-use Illuminate\Http\Request;
+use nullx27\Herald\Http\Requests\EventFormRequest;
 use nullx27\Herald\Models\Event;
+use Illuminate\Http\Request;
+use nullx27\Herald\Notifications\Discord;
 
 class EventController extends Controller
 {
@@ -36,62 +38,81 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('event.create');
+        $event = new Event();
+
+        return view('event.create', ['event' => $event]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  EventFormRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EventFormRequest $request)
     {
-        //
+        $event = new Event();
+        $event->title = $request->title;
+        $event->description = $request->description;
+        $event->due = $request->due;
+
+        $event->save();
+
+        return redirect()->route('events.show', $event->id);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \nullx27\Herald\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Event $event)
     {
-        //
+        return view('events.show', compact($event));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \nullx27\Herald\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Event $event)
     {
-        //
+
+        return view('event.edit', ['event' => $event]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  EventFormRequest  $request
+     * @param  \nullx27\Herald\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EventFormRequest $request, Event $event)
     {
-        //
+        $event->update($request->all());
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \nullx27\Herald\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Event $event)
     {
-        //
+        $event->delete();
+    }
+
+    public function announce(Event $event)
+    {
+        $event->notify(new Discord());
+
+        return back();
+
     }
 }

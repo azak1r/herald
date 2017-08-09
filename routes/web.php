@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
 Route::resource('events', 'EventController');
+Route::get('/events/{event}/announce', ['as' => 'events.announce', 'uses' => 'EventController@announce']);

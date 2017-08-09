@@ -6,8 +6,7 @@
 
             @include('event.partials.errors')
 
-
-            {{Form::model($event, ['route' => 'events.store'])}}
+            {{Form::model($event, ['route' => ['events.update', $event->id], 'method' => 'put'] )}}
 
                 @include('event.partials.form')
 

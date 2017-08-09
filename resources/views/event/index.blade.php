@@ -5,7 +5,7 @@
     @foreach($dates as $date => $events)
         <div class="row">
 
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-9 col-md-offset-2">
                 <h2>{{\Carbon\Carbon::parse($date)->toFormattedDateString()}}</h2>
 
                 @foreach($events as $event)
@@ -14,8 +14,11 @@
 
                             <div class="btn-group pull-right" role="group">
                                 <button type="button" class="btn btn-danger">remove</button>
-                                <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span></button>
-                                <button type="button" class="btn btn-default">edit</button>
+                                <a href="{{route('events.announce', $event->id)}}" class="btn btn-info">
+                                    <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>
+                                </a>
+
+                                <a href="{{route('events.edit', $event->id)}}" class="btn btn-default">edit</a>
                             </div>
 
                             <dl class="dl-horizontal">
@@ -26,7 +29,7 @@
                                 <dd>{{$event->due}}</dd>
 
                                 <dt>Description</dt>
-                                <dd>{{$event->description}}</dd>
+                                <dd>{{ $event->description}}</dd>
                             </dl>
 
                         </div>

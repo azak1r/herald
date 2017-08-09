@@ -17,9 +17,15 @@
 
 <body>
 
-<div class="container-fluid" id="app">
-    @yield('content')
+
+<div id="wrap">
+    @include('layout.partials.navigation')
+
+    <div class="container content">
+        @yield('content')
+    </div>
 </div>
+
 
 
 <script src="{{ mix('/js/app.js') }}"></script>
