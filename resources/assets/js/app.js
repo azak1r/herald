@@ -11,5 +11,6 @@ require('./bootstrap');
 const flatpickr = require("flatpickr");
 
 flatpickr(".flatpickr", {
-    enableTime: true
+    enableTime: true,
+    enableSeconds:true
 });

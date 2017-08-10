@@ -4,6 +4,7 @@ namespace nullx27\Herald\Http\Controllers;
 
 use Carbon\Carbon;
 use nullx27\Herald\Http\Requests\EventFormRequest;
+use nullx27\Herald\Jobs\AnnounceEvent;
 use nullx27\Herald\Models\Event;
 use Illuminate\Http\Request;
 use nullx27\Herald\Notifications\Discord;
@@ -17,7 +18,9 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::where('due', '>', Carbon::now())->get();
+        $events = Event::where('due', '>', Carbon::now())
+            ->orderBy('due', 'asc')
+            ->paginate(7);
 
         $sorted = [];
 
@@ -28,7 +31,7 @@ class EventController extends Controller
 
         ksort($sorted);
 
-        return view('event.index', ['dates' => $sorted]);
+        return view('event.index', ['dates' => $sorted, 'raw_events' => $events]);
     }
 
     /**
@@ -55,6 +58,7 @@ class EventController extends Controller
         $event->title = $request->title;
         $event->description = $request->description;
         $event->due = $request->due;
+        $event->user_id = 1; //@todo: Auth::user()->id
 
         $event->save();
 
@@ -69,7 +73,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        return view('events.show', compact($event));
+        return view('event.show', ['event' => $event]);
     }
 
     /**
@@ -110,7 +114,7 @@ class EventController extends Controller
 
     public function announce(Event $event)
     {
-        $event->notify(new Discord());
+        dispatch(new AnnounceEvent($event));
 
         return back();
 

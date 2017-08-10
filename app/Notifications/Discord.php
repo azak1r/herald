@@ -43,7 +43,7 @@ class Discord extends Notification
                 $embed->title($notifiable->title)
                     ->color(249)
                     ->description($notifiable->description)
-                    ->field('Due', $notifiable->due, true)
+                    ->field('Due', $notifiable->due->toDateTimeString(), true)
                     ->field('Created by', $notifiable->creator->name, true);
             });
     }

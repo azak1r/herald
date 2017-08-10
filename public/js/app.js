@@ -765,7 +765,8 @@ __webpack_require__(9);
 var flatpickr = __webpack_require__(35);
 
 flatpickr(".flatpickr", {
-  enableTime: true
+  enableTime: true,
+  enableSeconds: true
 });
 
 /***/ }),

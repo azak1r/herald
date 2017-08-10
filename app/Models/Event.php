@@ -9,6 +9,8 @@ class Event extends Model
 {
     use Notifiable;
 
+    protected $dates = ['created_at', 'updated_at', 'due'];
+
     protected $fillable = ['title', 'description', 'due'];
 
     public function creator()
