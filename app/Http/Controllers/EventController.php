@@ -3,11 +3,12 @@
 namespace nullx27\Herald\Http\Controllers;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use nullx27\Herald\Http\Requests\EventFormRequest;
 use nullx27\Herald\Jobs\AnnounceEvent;
 use nullx27\Herald\Models\Event;
 use Illuminate\Http\Request;
-use nullx27\Herald\Notifications\Discord;
+
 
 class EventController extends Controller
 {
@@ -17,6 +18,43 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+    {
+        $events = Event::where('due', '>', Carbon::now())
+            ->where('user_id', '=', Auth::user()->id)
+            ->orderBy('due', 'asc')
+            ->paginate(7);
+
+        $sorted = [];
+
+        foreach ($events as $event) {
+            $date  = Carbon::parse($event->due)->toDateString();
+            $sorted[$date][] = $event;
+        }
+
+        ksort($sorted);
+
+        return view('event.index', ['dates' => $sorted, 'raw_events' => $events]);
+    }
+
+    public function all()
+    {
+        $events = Event::where('due', '>', Carbon::now())
+            ->orderBy('due', 'asc')
+            ->paginate(7);
+
+        $sorted = [];
+
+        foreach ($events as $event) {
+            $date  = Carbon::parse($event->due)->toDateString();
+            $sorted[$date][] = $event;
+        }
+
+        ksort($sorted);
+
+        return view('event.index', ['dates' => $sorted, 'raw_events' => $events]);
+    }
+
+    public function old()
     {
         $events = Event::where('due', '>', Carbon::now())
             ->orderBy('due', 'asc')

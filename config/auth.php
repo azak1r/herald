@@ -99,4 +99,7 @@ return [
         ],
     ],
 
+
+    'whitelist' => explode(',', env('CORPORATION_WHILELIST', '')),
+
 ];

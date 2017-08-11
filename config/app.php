@@ -178,6 +178,8 @@ return [
         // nullx27\Herald\Providers\BroadcastServiceProvider::class,
         nullx27\Herald\Providers\EventServiceProvider::class,
         nullx27\Herald\Providers\RouteServiceProvider::class,
+        nullx27\Herald\Providers\ActiveNavigationProvider::class,
+
 
     ],
 
