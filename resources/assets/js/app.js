@@ -14,3 +14,9 @@ flatpickr(".flatpickr", {
     enableTime: true,
     enableSeconds:true
 });
+
+Vue.component('countdown', require('./components/Countdown.vue'));
+
+const app = new Vue({
+    el: '#countdown'
+});

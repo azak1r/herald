@@ -8,11 +8,13 @@
         "php": ">=7.0.0",
         "fideloper/proxy": "~3.3",
         "guzzlehttp/guzzle": "^6.3",
+        "laravel-notification-channels/discord-webhook": "dev-master",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "dev-master",
         "nullx27/eveonline-socialite": "^0.3.0",
-        "laravel-notification-channels/discord-webhook" : "dev-master"
+        "vinkla/hashids": "^3.2",
+        "watson/active": "^2.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

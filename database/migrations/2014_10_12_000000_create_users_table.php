@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->integer('character_id');
             $table->string('name');
             $table->string('owner_hash');
+            $table->boolean('admin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

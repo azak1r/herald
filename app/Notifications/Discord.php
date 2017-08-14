@@ -2,6 +2,7 @@
 
 namespace nullx27\Herald\Notifications;
 
+use Vinkla\Hashids\Facades\Hashids;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use NotificationChannels\DiscordWebhook\DiscordWebhookChannel;
@@ -36,15 +37,18 @@ class Discord extends Notification
 
     public function toDiscordWebhook($notifiable) {
 
+        $countdown_link = route('events.countdown', Hashids::encode($notifiable->id));
+
         return (new DiscordWebhookMessage())
             ->from('AnnouncementBot')
             ->content('Annoucement')
-            ->embed(function ($embed) use ($notifiable) {
+            ->embed(function ($embed) use ($notifiable, $countdown_link) {
                 $embed->title($notifiable->title)
-                    ->color(249)
+                    ->color(0xd20000)
                     ->description($notifiable->description)
                     ->field('Due', $notifiable->due->toDateTimeString(), true)
-                    ->field('Created by', $notifiable->creator->name, true);
+                    ->field('Created by', $notifiable->creator->name, true)
+                    ->field('Countdown', $countdown_link, true);
             });
     }
 }

@@ -12,6 +12,11 @@ class AnnouncementController extends Controller
 
     public function create(Request $request, Event $event)
     {
+        if(! \Auth::user()->can('create', $event)) {
+            return abort(403, 'Not sufficient permissions');
+        }
+
+
         $this->validate($request,[
             'date' => 'required|date'
         ]);
@@ -32,7 +37,9 @@ class AnnouncementController extends Controller
 
     public function destroy(Request $request, Announcement $announcement)
     {
-        //@Todo: Permission and ownership
+        if(! \Auth::user()->can('delete', $announcement))  {
+            return abort(403, 'Not sufficient permissions');
+        }
 
         $announcement->delete();
 

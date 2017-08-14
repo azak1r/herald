@@ -7,3 +7,120 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+.select {
+  opacity: 0.9;
+  @include centerer;
+  @include transition(width .3s ease);
+  width: auto;
+  height: 300px;
+}
+
+.nav-tabs {
+  border-bottom: none !important;
+}
+
+.nav-tabs > li > a {
+  background: #fff !important;
+  opacity: 0.4;
+  color: $text-color;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.nav-tabs > li.active > a {
+  background: #fff !important;
+  opacity: 0.9;
+  color: $brand-primary;
+
+  &:hover {
+    background: #fff !important;
+    color: $brand-primary;
+  }
+}
+
+.tab-content {
+  height: auto;
+  background: #fff;
+  opacity: 0.9;
+
+  width: 350px;
+
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.timepicker {
+  width: 60px !important;
+}
+
+.timepicker-group {
+  height: 80px;
+  width: 60px;
+  float: left;
+  margin-left: 15px;
+}
+
+#countdowntime {
+  padding: 20px;
+}
+
+.submit {
+  margin-top: 10px;
+}
+
+.tab-pane > form {
+  background: #fff;
+}
+
+#date {
+  min-height: 350px;
+  padding: 30px;
+}
+
+.timepicker-form {
+  text-align: center;
+}
+
+.countdown {
+  width: 50%;
+  margin: 0 auto;
+}
+
+#countdown {
+  opacity: 0.85;
+  @include centerer;
+  @include transition(width .3s ease);
+  width: 1010px;
+  height: auto;
+  background: #fff;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.block {
+  display: block;
+  margin: 20px;
+  float: left;
+  text-align: center;
+}
+
+.digit {
+  color:$brand-primary;
+  font-size: 60px;
+  width: 80px;
+}
+
+.text {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.created {
+  width:100%;
+  display:block;
+  padding:10px;
+}

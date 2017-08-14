@@ -3,6 +3,7 @@
 namespace nullx27\Herald\Http\Controllers;
 
 use Carbon\Carbon;
+use Vinkla\Hashids\Facades\Hashids;
 use Illuminate\Support\Facades\Auth;
 use nullx27\Herald\Http\Requests\EventFormRequest;
 use nullx27\Herald\Jobs\AnnounceEvent;
@@ -56,7 +57,7 @@ class EventController extends Controller
 
     public function old()
     {
-        $events = Event::where('due', '>', Carbon::now())
+        $events = Event::where('due', '<', Carbon::now())
             ->orderBy('due', 'asc')
             ->paginate(7);
 
@@ -147,14 +148,40 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
+        if(!Auth::user()->can('delete', $event)) {
+            return abort(403, 'Not authroized for that action');
+        }
+
         $event->delete();
+
+        return back();
+
     }
 
+    /**
+     * @param Event $event
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function announce(Event $event)
     {
         dispatch(new AnnounceEvent($event));
 
         return back();
 
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function countdown(Request $request, $id)
+    {
+        $real_id = Hashids::decode($id)[0];
+
+        $event = Event::findOrFail($real_id);
+
+        return view('countdown.index', ['event' => $event]);
     }
 }

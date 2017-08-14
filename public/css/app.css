@@ -8350,3 +8350,128 @@ button.close {
   }
 }
 
+.select {
+  opacity: 0.9;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: width 0.3s ease;
+  transition: width 0.3s ease;
+  width: auto;
+  height: 300px;
+}
+
+.nav-tabs {
+  border-bottom: none !important;
+}
+
+.nav-tabs > li > a {
+  background: #fff !important;
+  opacity: 0.4;
+  color: #636b6f;
+}
+
+.nav-tabs > li > a:hover {
+  opacity: 0.9;
+}
+
+.nav-tabs > li.active > a {
+  background: #fff !important;
+  opacity: 0.9;
+  color: #3097D1;
+}
+
+.nav-tabs > li.active > a:hover {
+  background: #fff !important;
+  color: #3097D1;
+}
+
+.tab-content {
+  height: auto;
+  background: #fff;
+  opacity: 0.9;
+  width: 350px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.timepicker {
+  width: 60px !important;
+}
+
+.timepicker-group {
+  height: 80px;
+  width: 60px;
+  float: left;
+  margin-left: 15px;
+}
+
+#countdowntime {
+  padding: 20px;
+}
+
+.submit {
+  margin-top: 10px;
+}
+
+.tab-pane > form {
+  background: #fff;
+}
+
+#date {
+  min-height: 350px;
+  padding: 30px;
+}
+
+.timepicker-form {
+  text-align: center;
+}
+
+.countdown {
+  width: 50%;
+  margin: 0 auto;
+}
+
+#countdown {
+  opacity: 0.85;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: width 0.3s ease;
+  transition: width 0.3s ease;
+  width: 1010px;
+  height: auto;
+  background: #fff;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.block {
+  display: block;
+  margin: 20px;
+  float: left;
+  text-align: center;
+}
+
+.digit {
+  color: #3097D1;
+  font-size: 60px;
+  width: 80px;
+}
+
+.text {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.created {
+  width: 100%;
+  display: block;
+  padding: 10px;
+}
+

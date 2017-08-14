@@ -23,14 +23,17 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
 
-                            <div class="btn-group pull-right" role="group">
-                                <button type="button" class="btn btn-danger">remove</button>
-                                <a href="{{route('events.announce', $event->id)}}" class="btn btn-info">
-                                    <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>
-                                </a>
+                            @if(Auth::user()->can('update', $event))
+                                <div class="btn-group pull-right" role="group">
+                                    <a href="{{route('events.delete', $event->id)}}" class="btn btn-danger">remove</a>
 
-                                <a href="{{route('events.edit', $event->id)}}" class="btn btn-default">edit</a>
-                            </div>
+                                    <a href="{{route('events.announce', $event->id)}}" class="btn btn-info">
+                                        <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>
+                                    </a>
+
+                                    <a href="{{route('events.edit', $event->id)}}" class="btn btn-default">edit</a>
+                                </div>
+                            @endif
 
                             <dl class="dl-horizontal">
                                 <dt>Title</dt>

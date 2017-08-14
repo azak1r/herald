@@ -4,6 +4,10 @@ namespace nullx27\Herald\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use nullx27\Herald\Models\Announcement;
+use nullx27\Herald\Models\Event;
+use nullx27\Herald\Policies\AnnouncementPolicy;
+use nullx27\Herald\Policies\EventPolicy;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -13,7 +17,8 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'nullx27\Herald\Model' => 'nullx27\Herald\Policies\ModelPolicy',
+        Event::class => EventPolicy::class,
+        Announcement::class => AnnouncementPolicy::class
     ];
 
     /**

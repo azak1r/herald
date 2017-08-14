@@ -8,13 +8,9 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="#">My Events</a>
-                </li>
-                <li><a href="#">All Events</a></li>
-                <li><a href="#">Past Events</a></li>
-
-
+                <li class="{{active('events.index')}}"><a href="{{route('events.index')}}">My Events</a></li>
+                <li class="{{active('events.all')}}"><a href="{{route('events.all')}}">All Events</a></li>
+                <li class="{{active('events.old')}}"><a href="{{route('events.old')}}">Past Events</a></li>
             </ul>
 
             @if(Auth::check())
