@@ -8,7 +8,7 @@
 
                 @if(Auth::user()->can('update', $event))
                     <div class="btn-group pull-right" role="group">
-                        <button type="button" class="btn btn-danger">remove</button>
+                        <a href="{{route('events.delete', $event->id)}}" class="btn btn-danger">remove</a>
                         <a href="{{route('events.announce', $event->id)}}" class="btn btn-info">
                             <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>
                         </a>
