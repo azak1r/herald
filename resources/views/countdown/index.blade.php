@@ -25,7 +25,7 @@
                 <div class="clearfix"></div>
                 <hr>
 
-                <dl class="dl-horizontal">
+                <dl class="dl-horizontal text-left">
                     <dt>Title</dt>
                     <dd>{{$event->title}}</dd>
 
@@ -40,11 +40,7 @@
 
                 </dl>
 
-
-                <small class="created pull-right">Created at {{$event->created_at}} | Target: {{$event->due}} | All
-                    times in
-                    UTC
-                </small>
+                <small class="created pull-right">Created at {{$event->created_at}} | Target: {{$event->due}} | All times in UTC</small>
             </div>
 
 

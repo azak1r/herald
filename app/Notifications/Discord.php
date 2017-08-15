@@ -41,7 +41,7 @@ class Discord extends Notification
 
         return (new DiscordWebhookMessage())
             ->from('AnnouncementBot')
-            ->content('Annoucement')
+            ->content('*Annoucement*')
             ->embed(function ($embed) use ($notifiable, $countdown_link) {
                 $embed->title($notifiable->title)
                     ->color(0xd20000)

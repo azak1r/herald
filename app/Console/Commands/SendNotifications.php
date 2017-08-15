@@ -40,7 +40,7 @@ class SendNotifications extends Command
      */
     public function handle()
     {
-        $announcements = Announcement::where('date', '>=', Carbon::now())->get();
+        $announcements = Announcement::where('date', '<=', Carbon::now())->get();
 
         foreach ($announcements as $announcement) {
             dispatch(new AnnounceEvent($announcement->event));
