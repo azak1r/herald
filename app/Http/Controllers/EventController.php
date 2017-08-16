@@ -154,7 +154,7 @@ class EventController extends Controller
 
         $event->delete();
 
-        return back();
+        return redirect()->route('events.index');
 
     }
 
