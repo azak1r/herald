@@ -97,7 +97,7 @@ class EventController extends Controller
         $event->title = $request->title;
         $event->description = $request->description;
         $event->due = Carbon::parse($request->due);
-        $event->user_id = 1; //@todo: Auth::user()->id
+        $event->user_id = auth()->user()->id;
 
         $event->save();
 
@@ -136,8 +136,12 @@ class EventController extends Controller
      */
     public function update(EventFormRequest $request, Event $event)
     {
-        $event->update($request->all());
 
+        $event->title = $request->title;
+        $event->description = $request->description;
+        $event->due = Carbon::parse($request->due);
+
+        $event->save();
     }
 
     /**
