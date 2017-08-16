@@ -48,7 +48,7 @@ class EventPolicy
      */
     public function update(User $user, Event $event)
     {
-        return $user->id == $event->user_id; //@todo: admins should be able to edit everything
+        return $user->id == $event->user_id;
     }
 
     /**
@@ -60,6 +60,6 @@ class EventPolicy
      */
     public function delete(User $user, Event $event)
     {
-        return $user->id == $event->user_id; //@todo: admins should be able to delete everything
+        return $user->id == $event->user_id;
     }
 }

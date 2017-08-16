@@ -49,7 +49,7 @@ class AnnouncementPolicy
      */
     public function update(User $user, Announcement $announcement)
     {
-        return $user->id == $announcement->event->user_id; //@todo: admins should be able to edit everything
+        return $user->id == $announcement->event->user_id;
     }
 
     /**
@@ -61,6 +61,6 @@ class AnnouncementPolicy
      */
     public function delete(User $user, Announcement $announcement)
     {
-        return $user->id == $announcement->event->user_id; //@todo: admins should be able to edit everything
+        return $user->id == $announcement->event->user_id;
     }
 }
