@@ -142,6 +142,8 @@ class EventController extends Controller
         $event->due = Carbon::parse($request->due);
 
         $event->save();
+
+        return redirect()->route('events.show', $event->id);
     }
 
     /**
