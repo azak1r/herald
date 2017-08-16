@@ -46,7 +46,7 @@ class Discord extends Notification
                 $embed->title($notifiable->title)
                     ->color(0xd20000)
                     ->description($notifiable->description)
-                    ->field('Due', $notifiable->due->toDateTimeString(), true)
+                    ->field('Due', $notifiable->due->toDateTimeString() . ' EVE', true)
                     ->field('Created by', $notifiable->creator->name, true)
                     ->field('Countdown', $countdown_link, true);
             });
