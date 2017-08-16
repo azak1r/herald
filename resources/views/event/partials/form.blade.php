@@ -11,6 +11,7 @@
 <div class="form-group">
     {{ Form::label('due', null, ['class' => 'control-label']) }}
     {{ Form::text('due', null, ['class' => 'flatpickr form-control', 'required', 'placehodler' => 'Select Date...', 'data-id' => 'datetime']) }}
+    <span id="helpBlock" class="help-block">Please use your local timezone.</span>
 </div>
 
 

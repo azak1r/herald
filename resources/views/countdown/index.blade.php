@@ -17,7 +17,7 @@
 
     <div class="container content">
 
-        <div id="countdown" class="panel panel-default panel-primary">
+        <div id="vue" class="panel panel-default panel-primary">
             <div class="panel-body">
 
                 <countdown date="{{$event->due}}"></countdown>
@@ -33,14 +33,14 @@
                     <dd>{{$event->creator->name}}</dd>
 
                     <dt>Date & Time</dt>
-                    <dd>{{$event->due}}</dd>
+                    <dd><timezone date="{{$event->due}}"></timezone></dd>
 
                     <dt>Description</dt>
                     <dd>{!! nl2br($event->description) !!}</dd>
 
                 </dl>
-
-                <small class="created pull-right">Created at {{$event->created_at}} | Target: {{$event->due}} | All times in UTC</small>
+                <div class="clearfix"></div>
+                <small class="created text-center">Created at <timezone date="{{$event->created_at}}"></timezone> | Target: <timezone date="{{$event->due}}"></timezone></small>
             </div>
 
 

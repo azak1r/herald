@@ -21,7 +21,7 @@
 <div id="wrap">
     @include('layout.partials.navigation')
 
-    <div class="container content">
+    <div class="container content" id="content">
         @yield('content')
     </div>
 </div>

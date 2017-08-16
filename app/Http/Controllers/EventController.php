@@ -96,7 +96,7 @@ class EventController extends Controller
         $event = new Event();
         $event->title = $request->title;
         $event->description = $request->description;
-        $event->due = $request->due;
+        $event->due = Carbon::parse($request->due);
         $event->user_id = 1; //@todo: Auth::user()->id
 
         $event->save();

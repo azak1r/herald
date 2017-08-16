@@ -24,7 +24,7 @@
 
         <div class="col-md-8">
 
-            <div class="panel panel-default panel-primary">
+            <div class="panel panel-default panel-primary" id="vue">
                 <div class="panel-body">
 
                     <dl class="dl-horizontal">
@@ -35,7 +35,7 @@
                         <dd>{{$event->creator->name}}</dd>
 
                         <dt>Date & Time</dt>
-                        <dd>{{$event->due}}</dd>
+                        <dd><timezone date="{{$event->due}}"></timezone></dd>
 
                         <dt>Description</dt>
                         <dd>{!! nl2br($event->description) !!}</dd>

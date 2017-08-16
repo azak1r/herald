@@ -33,10 +33,3 @@ Route::group(['prefix' => 'auth'], function(){
     Route::get('/logout', ['as' => 'auth.logout', 'uses' => 'Auth\SSOController@logout']);
 
 });
-
-Route::get('/debug', function(){
-    $user = \nullx27\Herald\Models\User::find(1);
-
-    auth()->login($user);
-    return redirect('/');
-});

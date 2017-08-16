@@ -35,12 +35,12 @@
                                 </div>
                             @endif
 
-                            <dl class="dl-horizontal">
+                            <dl class="dl-horizontal" id="vue">
                                 <dt>Title</dt>
                                 <dd><a href="{{route('events.show', $event->id)}}">{{$event->title}}</a></dd>
 
                                 <dt>Date & Time</dt>
-                                <dd>{{$event->due}}</dd>
+                                <dd><timezone date="{{$event->due}}"></timezone></dd>
 
                                 <dt>Description</dt>
                                 <dd>{!! nl2br($event->description) !!}</dd>
