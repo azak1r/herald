@@ -46,6 +46,7 @@ class UpdateMessages extends Command
             // Remove message objects for messages that have been updated
             if(!$message->event->active()) {
                 $message->delete();
+                continue;
             }
 
             dispatch(new UpdateMessage($message));
