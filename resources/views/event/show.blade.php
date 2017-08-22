@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        @if(Auth::user()->can('update', $event) && $event->due > \Carbon\Carbon::now())
+        @if(Auth::user()->can('update', $event) && $event->active())
             <div class="col-md-4">
 
                 @include('event.partials.errors')

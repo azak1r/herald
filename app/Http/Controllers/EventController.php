@@ -138,6 +138,8 @@ class EventController extends Controller
     public function update(EventFormRequest $request, Event $event)
     {
 
+        abort_unless($event->active(), 403, 'Event no longer active');
+
         $event->title = $request->title;
         $event->description = $request->description;
         $event->due = Carbon::parse($request->due);
@@ -155,6 +157,8 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
+        abort_unless($event->active(), 403, 'Event no longer active');
+
         if(!Auth::user()->can('delete', $event)) {
             return abort(403, 'Not authroized for that action');
         }
@@ -171,6 +175,8 @@ class EventController extends Controller
      */
     public function announce(Event $event)
     {
+        abort_unless($event->active(), 403, 'Event no longer active');
+
 
         dd($event->notify(new Discord()));
         //dispatch(new AnnounceEvent($event));

@@ -23,7 +23,7 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
 
-                            @if(Auth::user()->can('update', $event) && $event->due > \Carbon\Carbon::now())
+                            @if(Auth::user()->can('update', $event) && $event->active())
                                 <div class="btn-group pull-right" role="group">
                                     <a href="{{route('events.delete', $event->id)}}" class="btn btn-danger">remove</a>
 

@@ -2,6 +2,7 @@
 
 namespace nullx27\Herald\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
@@ -25,6 +26,10 @@ class Event extends Model
 
     public function routeNotificationForDiscordWebhook() {
         return config('services.discord.webhook');
+    }
+
+    public function active() {
+        return $this->due > Carbon::now();
     }
 
 }
