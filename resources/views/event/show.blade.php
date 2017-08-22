@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <h2>Event Info
 
-                @if(Auth::user()->can('update', $event))
+                @if(Auth::user()->can('update', $event) && $event->due > \Carbon\Carbon::now())
                     <div class="btn-group pull-right" role="group">
                         <a href="{{route('events.delete', $event->id)}}" class="btn btn-danger">remove</a>
                         <a href="{{route('events.announce', $event->id)}}" class="btn btn-info">
@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        @if(Auth::user()->can('update', $event))
+        @if(Auth::user()->can('update', $event) && $event->due > \Carbon\Carbon::now())
             <div class="col-md-4">
 
                 @include('event.partials.errors')

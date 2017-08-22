@@ -2,6 +2,8 @@
 
 namespace nullx27\Herald\Providers;
 
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Blade::if('active', function($event) {
+            return $event->due < Carbon::now();
+        });
     }
 
     /**
