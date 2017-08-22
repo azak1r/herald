@@ -59,7 +59,7 @@ class EventController extends Controller
     public function old()
     {
         $events = Event::where('due', '<', Carbon::now())
-            ->orderBy('due', 'asc')
+            ->orderBy('due', 'desc')
             ->paginate(7);
 
         $sorted = [];
