@@ -771,16 +771,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "81fde496ff95dd5c66f8fb1c0afa4dc86dbb2663"
+                "reference": "b55b106a99e84fe02040a06777f9836bcae86109"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/81fde496ff95dd5c66f8fb1c0afa4dc86dbb2663",
-                "reference": "81fde496ff95dd5c66f8fb1c0afa4dc86dbb2663",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b55b106a99e84fe02040a06777f9836bcae86109",
+                "reference": "b55b106a99e84fe02040a06777f9836bcae86109",
                 "shasum": ""
             },
             "require": {
-                "doctrine/inflector": "~1.1.0",
+                "doctrine/inflector": "~1.1",
                 "erusev/parsedown": "~1.6",
                 "ext-mbstring": "*",
                 "ext-openssl": "*",
@@ -895,7 +895,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-08-08T17:20:45+00:00"
+            "time": "2017-08-21T18:48:30+00:00"
         },
         {
             "name": "laravel/socialite",
@@ -1028,12 +1028,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelCollective/html.git",
-                "reference": "a47a02b962c7fbef791c36146c3b2fc9b7af038c"
+                "reference": "97fa90bf645aa3300f22562ab126641fed040a33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/a47a02b962c7fbef791c36146c3b2fc9b7af038c",
-                "reference": "a47a02b962c7fbef791c36146c3b2fc9b7af038c",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/97fa90bf645aa3300f22562ab126641fed040a33",
+                "reference": "97fa90bf645aa3300f22562ab126641fed040a33",
                 "shasum": ""
             },
             "require": {
@@ -1050,6 +1050,20 @@
                 "phpunit/phpunit": "~5.4"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.5-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Collective\\Html\\HtmlServiceProvider"
+                    ],
+                    "aliases": {
+                        "Form": "Collective\\Html\\FormFacade",
+                        "Html": "Collective\\Html\\HtmlFacade"
+                    }
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Collective\\Html\\": "src/"
@@ -1074,7 +1088,7 @@
             ],
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "http://laravelcollective.com",
-            "time": "2017-05-22T03:44:19+00:00"
+            "time": "2017-08-12T15:48:49+00:00"
         },
         {
             "name": "league/flysystem",
@@ -2375,16 +2389,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.4.0",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "f29dca382a6485c3cbe6379f0c61230167681937"
+                "reference": "7c8fae0ac1d216eb54349e6a8baa57d515fe8803"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/f29dca382a6485c3cbe6379f0c61230167681937",
-                "reference": "f29dca382a6485c3cbe6379f0c61230167681937",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/7c8fae0ac1d216eb54349e6a8baa57d515fe8803",
+                "reference": "7c8fae0ac1d216eb54349e6a8baa57d515fe8803",
                 "shasum": ""
             },
             "require": {
@@ -2396,7 +2410,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "1.5-dev"
                 }
             },
             "autoload": {
@@ -2430,7 +2444,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-09T14:24:12+00:00"
+            "time": "2017-06-14T15:44:48+00:00"
         },
         {
             "name": "symfony/process",
@@ -2931,22 +2945,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "58bdd2919ac2da5997362181e9546c9cd82ffc5e"
+                "reference": "eabef3695317d2d69ea1e8f719c73157e2baa206"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/58bdd2919ac2da5997362181e9546c9cd82ffc5e",
-                "reference": "58bdd2919ac2da5997362181e9546c9cd82ffc5e",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/eabef3695317d2d69ea1e8f719c73157e2baa206",
+                "reference": "eabef3695317d2d69ea1e8f719c73157e2baa206",
                 "shasum": ""
             },
             "require": {
-                "illuminate/routing": "5.5.x",
-                "illuminate/session": "5.5.x",
-                "illuminate/support": "5.5.x",
+                "illuminate/routing": "5.4.x|5.5.x",
+                "illuminate/session": "5.4.x|5.5.x",
+                "illuminate/support": "5.4.x|5.5.x",
                 "maximebf/debugbar": "~1.14.0",
                 "php": ">=7.0",
-                "symfony/debug": "^3.3",
-                "symfony/finder": "^3.3"
+                "symfony/debug": "^3.2",
+                "symfony/finder": "^3.2"
             },
             "require-dev": {
                 "illuminate/framework": "5.5.x"
@@ -2991,7 +3005,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2017-07-25T13:01:32+00:00"
+            "time": "2017-08-17T07:33:08+00:00"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -3232,29 +3246,31 @@
         },
         {
             "name": "fzaninotto/faker",
-            "version": "v1.6.0",
+            "version": "v1.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123"
+                "reference": "d3ed4cc37051c1ca52d22d76b437d14809fc7e0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/44f9a286a04b80c76a4e5fb7aad8bb539b920123",
-                "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/d3ed4cc37051c1ca52d22d76b437d14809fc7e0d",
+                "reference": "d3ed4cc37051c1ca52d22d76b437d14809fc7e0d",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3|^7.0"
+                "php": "^5.3.3 || ^7.0"
             },
             "require-dev": {
                 "ext-intl": "*",
-                "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "~1.5"
+                "phpunit/phpunit": "^4.0 || ^5.0",
+                "squizlabs/php_codesniffer": "^1.5"
             },
             "type": "library",
             "extra": {
-                "branch-alias": []
+                "branch-alias": {
+                    "dev-master": "1.8-dev"
+                }
             },
             "autoload": {
                 "psr-4": {
@@ -3276,7 +3292,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2016-04-29T12:21:54+00:00"
+            "time": "2017-08-15T16:48:10+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -3329,12 +3345,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "370af31f14510dbf75f378a05b38688d861d39f2"
+                "reference": "e23a98f2d65607d8aa6c7b409a513f8fdf4acdde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/370af31f14510dbf75f378a05b38688d861d39f2",
-                "reference": "370af31f14510dbf75f378a05b38688d861d39f2",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/e23a98f2d65607d8aa6c7b409a513f8fdf4acdde",
+                "reference": "e23a98f2d65607d8aa6c7b409a513f8fdf4acdde",
                 "shasum": ""
             },
             "require": {
@@ -3382,7 +3398,7 @@
                 "debug",
                 "debugbar"
             ],
-            "time": "2017-07-28T06:38:23+00:00"
+            "time": "2017-08-17T07:17:00+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -4005,16 +4021,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "ecb0b2cdaa0add708fe6f329ef65ae0c5225130b"
+                "reference": "9a02332089ac48e704c70f6cefed30c224e3c0b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/ecb0b2cdaa0add708fe6f329ef65ae0c5225130b",
-                "reference": "ecb0b2cdaa0add708fe6f329ef65ae0c5225130b",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/9a02332089ac48e704c70f6cefed30c224e3c0b0",
+                "reference": "9a02332089ac48e704c70f6cefed30c224e3c0b0",
                 "shasum": ""
             },
             "require": {
@@ -4050,7 +4066,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-08-03T14:17:41+00:00"
+            "time": "2017-08-20T05:47:52+00:00"
         },
         {
             "name": "phpunit/phpunit",

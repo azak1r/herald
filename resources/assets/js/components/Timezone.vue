@@ -12,8 +12,8 @@
 
         data() {
             return {
-                utc: moment.utc(this.date).format('Y-m-d H:mm z'),
-                localized: moment.tz(moment.utc(this.date), moment.tz.guess()).format('Y-m-d H:mm z')
+                utc: moment.utc(this.date).format('YYYY-MM-DD HH:mm z'),
+                localized: moment.tz(moment.utc(this.date), moment.tz.guess()).format('YYYY-MM-DD HH:mm z')
             }
         },
     }

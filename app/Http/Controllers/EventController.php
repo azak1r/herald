@@ -3,6 +3,7 @@
 namespace nullx27\Herald\Http\Controllers;
 
 use Carbon\Carbon;
+use nullx27\Herald\Notifications\Discord;
 use Vinkla\Hashids\Facades\Hashids;
 use Illuminate\Support\Facades\Auth;
 use nullx27\Herald\Http\Requests\EventFormRequest;
@@ -170,7 +171,9 @@ class EventController extends Controller
      */
     public function announce(Event $event)
     {
-        dispatch(new AnnounceEvent($event));
+
+        dd($event->notify(new Discord()));
+        //dispatch(new AnnounceEvent($event));
 
         return back();
 

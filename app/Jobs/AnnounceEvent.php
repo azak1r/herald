@@ -7,6 +7,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Support\Facades\Log;
 use nullx27\Herald\Models\Event;
 use nullx27\Herald\Notifications\Discord;
 
@@ -33,6 +34,7 @@ class AnnounceEvent implements ShouldQueue
      */
     public function handle()
     {
-        $this->event->notify(new Discord());
+        $message = $this->event->notify(new Discord());
+        Log::info($message);
     }
 }
