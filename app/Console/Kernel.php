@@ -25,6 +25,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('herald:announce')->everyMinute();
+        $schedule->command('herald:update')->everyFiveMinutes();
     }
 
     /**

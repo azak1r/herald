@@ -2,11 +2,11 @@
 
 namespace nullx27\Herald\Notifications;
 
+use NotificationChannels\Discord\DiscordChannel;
+use NotificationChannels\Discord\DiscordMessage;
 use Vinkla\Hashids\Facades\Hashids;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
-use NotificationChannels\DiscordWebhook\DiscordWebhookChannel;
-use NotificationChannels\DiscordWebhook\DiscordWebhookMessage;
 
 
 class Discord extends Notification
@@ -16,7 +16,6 @@ class Discord extends Notification
     /**
      * Create a new notification instance.
      *
-     * @return void
      */
     public function __construct()
     {
@@ -25,30 +24,19 @@ class Discord extends Notification
 
     /**
      * Get the notification's delivery channels.
-     *
-     * @param  mixed  $notifiable
      * @return array
+     * @internal param mixed $notifiable
      */
-    public function via($notifiable)
+    public function via()
     {
-        return [DiscordWebhookChannel::class];
+        return [DiscordChannel::class];
     }
 
 
-    public function toDiscordWebhook($notifiable) {
+    public function toDiscord($notifiable) {
 
-        $countdown_link = route('events.countdown', Hashids::encode($notifiable->id));
+        $embed = $notifiable->create_embed();
 
-        return (new DiscordWebhookMessage())
-            ->from('AnnouncementBot')
-            ->content('*Annoucement*')
-            ->embed(function ($embed) use ($notifiable, $countdown_link) {
-                $embed->title($notifiable->title)
-                    ->color(0xd20000)
-                    ->description($notifiable->description)
-                    ->field('Due', $notifiable->due->toDateTimeString() . ' EVE', true)
-                    ->field('Created by', $notifiable->creator->name, true)
-                    ->field('Countdown', $countdown_link, true);
-            });
+        return new DiscordMessage('**Annoucement**', $embed);
     }
 }

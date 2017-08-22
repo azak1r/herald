@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'nullx27\Herald\Events\Event' => [
-            'nullx27\Herald\Listeners\EventListener',
+        'Illuminate\Notifications\Events\NotificationSent' => [
+            'nullx27\Herald\Listeners\AnnoucementSentEvent',
         ],
     ];
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "217710ab283290132c34361915884d60",
+    "content-hash": "59ee92abf75ba9a01aae890c7f576055",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -41,33 +41,33 @@
         },
         {
             "name": "doctrine/inflector",
-            "version": "v1.1.0",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "90b2128806bfde671b6952ab8bea493942c1fdae"
+                "reference": "e11d84c6e018beedd929cff5220969a3c6d1d462"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/90b2128806bfde671b6952ab8bea493942c1fdae",
-                "reference": "90b2128806bfde671b6952ab8bea493942c1fdae",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/e11d84c6e018beedd929cff5220969a3c6d1d462",
+                "reference": "e11d84c6e018beedd929cff5220969a3c6d1d462",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": "^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.*"
+                "phpunit/phpunit": "^6.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Doctrine\\Common\\Inflector\\": "lib/"
+                "psr-4": {
+                    "Doctrine\\Common\\Inflector\\": "lib/Doctrine/Common/Inflector"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -104,7 +104,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2015-11-06T14:35:42+00:00"
+            "time": "2017-07-22T12:18:28+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -708,62 +708,62 @@
             "time": "2015-04-20T18:58:01+00:00"
         },
         {
-            "name": "laravel-notification-channels/discord-webhook",
+            "name": "laravel-notification-channels/discord",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/necrotex/discord-webhook.git",
-                "reference": "8834838c44749683424f3d112c54ec7ec9f62887"
+                "url": "https://github.com/laravel-notification-channels/discord.git",
+                "reference": "c81af6438db4dbd33344b027added12c4709bf27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/necrotex/discord-webhook/zipball/8834838c44749683424f3d112c54ec7ec9f62887",
-                "reference": "8834838c44749683424f3d112c54ec7ec9f62887",
+                "url": "https://api.github.com/repos/laravel-notification-channels/discord/zipball/c81af6438db4dbd33344b027added12c4709bf27",
+                "reference": "c81af6438db4dbd33344b027added12c4709bf27",
                 "shasum": ""
             },
             "require": {
-                "guzzlehttp/guzzle": "^6.2",
-                "illuminate/notifications": "^5.3",
-                "illuminate/support": "^5.1|^5.2|^5.3|^5.4|^5.5",
-                "php": ">=5.6.4"
+                "guzzlehttp/guzzle": "~6.0",
+                "illuminate/console": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
+                "illuminate/notifications": "5.3.*|5.4.*|5.5.*",
+                "illuminate/queue": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
+                "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
+                "php": ">=5.6.4",
+                "textalk/websocket": "1.0.*"
             },
             "require-dev": {
+                "laravel/framework": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
                 "mockery/mockery": "^0.9.5",
+                "orchestra/database": "3.3.x-dev",
+                "orchestra/testbench": "3.1.*|3.2.*|3.3.*|3.3.x-dev",
                 "phpunit/phpunit": "4.*"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "NotificationChannels\\DiscordWebhook\\": "src"
+                    "NotificationChannels\\Discord\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "NotificationChannels\\DiscordWebhook\\Test\\": "tests"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "name": "Dr. Dr. Jojo",
-                    "email": "drdrjojo2k@gmail.com",
-                    "homepage": "https://github.com/drdrjojo",
+                    "name": "Cody Scott",
+                    "email": "cs475x@icloud.com",
                     "role": "Developer"
                 }
             ],
-            "description": "Discord Webhook notifications channel for Laravel 5.3",
-            "homepage": "https://github.com/laravel-notification-channels/discord-webhook",
-            "support": {
-                "source": "https://github.com/necrotex/discord-webhook/tree/master"
-            },
-            "time": "2017-08-09T11:29:35+00:00"
+            "description": "Laravel notification driver for Discord.",
+            "homepage": "https://github.com/laravel-notification-channels/discord",
+            "keywords": [
+                "channel",
+                "discord",
+                "driver",
+                "laravel",
+                "notification"
+            ],
+            "time": "2017-08-21T03:04:32+00:00"
         },
         {
             "name": "laravel/framework",
@@ -2705,6 +2705,44 @@
                 "dump"
             ],
             "time": "2017-07-28T06:06:09+00:00"
+        },
+        {
+            "name": "textalk/websocket",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Textalk/websocket-php.git",
+                "reference": "ba2e5f9ef7cf24d536d1c864ae74b2a9599b86eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Textalk/websocket-php/zipball/ba2e5f9ef7cf24d536d1c864ae74b2a9599b86eb",
+                "reference": "ba2e5f9ef7cf24d536d1c864ae74b2a9599b86eb",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.1.*",
+                "phpunit/phpunit-selenium": "1.3.3",
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "WebSocket\\": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fredrik Liljegren",
+                    "email": "fredrik.liljegren@textalk.se"
+                }
+            ],
+            "description": "WebSocket client and server",
+            "time": "2015-04-11T05:45:54+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -4920,7 +4958,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "laravel-notification-channels/discord-webhook": 20,
+        "laravel-notification-channels/discord": 20,
         "laravelcollective/html": 20,
         "barryvdh/laravel-debugbar": 20
     },

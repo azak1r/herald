@@ -177,9 +177,7 @@ class EventController extends Controller
     {
         abort_unless($event->active(), 403, 'Event no longer active');
 
-
-        dd($event->notify(new Discord()));
-        //dispatch(new AnnounceEvent($event));
+        dispatch(new AnnounceEvent($event));
 
         return back();
 

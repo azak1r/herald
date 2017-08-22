@@ -30,13 +30,14 @@ return [
     ],
 
     'stripe' => [
-        'model' => nullx27\Herald\User::class,
+        'model' => nullx27\Herald\Models\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
 
     'discord' => [
-        'webhook' => env('DISCORD_WEBHOOK'),
+        'token' => env('DISCORD_TOKEN'),
+        'channel' => env('DISCORD_CHANNEL')
     ],
 
 ];

@@ -5,6 +5,7 @@ namespace nullx27\Herald\Providers;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use nullx27\Herald\Helpers\Discord;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,9 +16,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blade::if('active', function($event) {
-            return $event->due < Carbon::now();
-        });
+        $token = $this->app->make('config')->get('services.discord.token');
+
+        $this->app->when(Discord::class)
+            ->needs('$token')
+            ->give($token);
     }
 
     /**
