@@ -26,6 +26,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('herald:announce')->everyMinute();
         $schedule->command('herald:update')->everyFiveMinutes();
+        $schedule->command('herald:attendees')->everyFiveMinutes();
     }
 
     /**

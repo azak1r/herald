@@ -23,17 +23,20 @@ class Discord
         $this->token = $token;
     }
 
-    public function request($verb, $endpoint, array $data = [])
+    public function request($verb, $endpoint, array $data = null)
     {
         $url = rtrim($this->baseUrl, '/') . '/' . ltrim($endpoint, '/');
 
         try {
-            $response = $this->httpClient->request($verb, $url, [
-                'headers' => [
-                    'Authorization' => 'Bot ' . $this->token,
-                ],
-                'json' => $data,
-            ]);
+
+            $payload = [];
+            $payload['headers'] = [ 'Authorization' => 'Bot ' . $this->token];
+
+            if(!is_null($data)) {
+                $payload['json'] = $data;
+            }
+
+            $response = $this->httpClient->request($verb, $url, $payload);
 
         } catch (RequestException $exception) {
 
@@ -66,6 +69,21 @@ class Discord
         $data = ['content' => $content, 'embed' => $embed];
 
         return $this->request('PATCH', "/channels/{$channel}/messages/{$message_id}", $data);
+    }
+
+    public function get_message($channel, $message_id)
+    {
+        return $this->request('GET', "/channels/{$channel}/messages/{$message_id}");
+    }
+
+    public function get_message_reactions($channel, $message_id, $emoji)
+    {
+        return $this->request('GET', "/channels/{$channel}/messages/{$message_id}/reactions/{$emoji}");
+    }
+
+    public function get_guild_member($guild_id, $user_id)
+    {
+        return $this->request('GET', "/guilds/{$guild_id}/members/{$user_id}");
     }
 
 }

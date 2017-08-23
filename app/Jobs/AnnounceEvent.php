@@ -34,7 +34,6 @@ class AnnounceEvent implements ShouldQueue
      */
     public function handle()
     {
-        $message = $this->event->notify(new Discord());
-        Log::info($message);
+        $this->event->notify(new Discord());
     }
 }

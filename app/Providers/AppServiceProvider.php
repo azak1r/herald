@@ -6,6 +6,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use nullx27\Herald\Helpers\Discord;
+use nullx27\Herald\Models\Setting;
+use nullx27\Herald\Observers\SettingObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->when(Discord::class)
             ->needs('$token')
             ->give($token);
+
+        Setting::observe(SettingObserver::class);
     }
 
     /**

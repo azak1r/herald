@@ -5,6 +5,7 @@ namespace nullx27\Herald\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Cache;
 use Vinkla\Hashids\Facades\Hashids;
 
 class Event extends Model
@@ -25,8 +26,13 @@ class Event extends Model
         return $this->hasMany(Announcement::class, 'event_id', 'id');
     }
 
+    public function attendees()
+    {
+        return $this->hasMany(Attendee::class, 'event_id', 'id');
+    }
+
     public function routeNotificationForDiscord() {
-        return config('services.discord.channel');
+        return Setting::key('annoucement_channel_id');
     }
 
     public function active() {

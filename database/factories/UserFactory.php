@@ -18,8 +18,8 @@ $factory->define(nullx27\Herald\Models\User::class, function (Faker $faker) {
 
     return [
         'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'character_id' => 1,
+        'owner_hash' => str_random(10),
         'remember_token' => str_random(10),
     ];
 });

@@ -6,8 +6,10 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use nullx27\Herald\Models\Announcement;
 use nullx27\Herald\Models\Event;
+use nullx27\Herald\Models\Setting;
 use nullx27\Herald\Policies\AnnouncementPolicy;
 use nullx27\Herald\Policies\EventPolicy;
+use nullx27\Herald\Policies\SettingPolicy;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -18,7 +20,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         Event::class => EventPolicy::class,
-        Announcement::class => AnnouncementPolicy::class
+        Announcement::class => AnnouncementPolicy::class,
+        Setting::class => SettingPolicy::class
     ];
 
     /**

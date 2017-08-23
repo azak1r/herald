@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "59ee92abf75ba9a01aae890c7f576055",
+    "content-hash": "5f1fe260534a974cbe1b1139f3c0af56",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -713,12 +713,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-notification-channels/discord.git",
-                "reference": "c81af6438db4dbd33344b027added12c4709bf27"
+                "reference": "fafdd549747fb5784c72964e86b42861b52a85f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-notification-channels/discord/zipball/c81af6438db4dbd33344b027added12c4709bf27",
-                "reference": "c81af6438db4dbd33344b027added12c4709bf27",
+                "url": "https://api.github.com/repos/laravel-notification-channels/discord/zipball/fafdd549747fb5784c72964e86b42861b52a85f0",
+                "reference": "fafdd549747fb5784c72964e86b42861b52a85f0",
                 "shasum": ""
             },
             "require": {
@@ -738,6 +738,13 @@
                 "phpunit/phpunit": "4.*"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NotificationChannels\\Discord\\DiscordServiceProvider"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "NotificationChannels\\Discord\\": "src"
@@ -763,7 +770,7 @@
                 "laravel",
                 "notification"
             ],
-            "time": "2017-08-21T03:04:32+00:00"
+            "time": "2017-08-22T17:11:56+00:00"
         },
         {
             "name": "laravel/framework",
@@ -771,12 +778,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b55b106a99e84fe02040a06777f9836bcae86109"
+                "reference": "3c888b6c7b89c3d3f90e9024ffbebed3ee80bd23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b55b106a99e84fe02040a06777f9836bcae86109",
-                "reference": "b55b106a99e84fe02040a06777f9836bcae86109",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/3c888b6c7b89c3d3f90e9024ffbebed3ee80bd23",
+                "reference": "3c888b6c7b89c3d3f90e9024ffbebed3ee80bd23",
                 "shasum": ""
             },
             "require": {
@@ -839,7 +846,7 @@
             "require-dev": {
                 "aws/aws-sdk-php": "~3.0",
                 "doctrine/dbal": "~2.5",
-                "filp/whoops": "~2.0",
+                "filp/whoops": "^2.1.4",
                 "mockery/mockery": "~0.9.4",
                 "orchestra/testbench-core": "3.5.*",
                 "pda/pheanstalk": "~3.0",
@@ -895,7 +902,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-08-21T18:48:30+00:00"
+            "time": "2017-08-22T19:33:36+00:00"
         },
         {
             "name": "laravel/socialite",
@@ -1553,6 +1560,56 @@
                 "random"
             ],
             "time": "2017-03-13T16:27:32+00:00"
+        },
+        {
+            "name": "predis/predis",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nrk/predis.git",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/f0210e38881631afeafb56ab43405a92cafd9fd1",
+                "reference": "f0210e38881631afeafb56ab43405a92cafd9fd1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "suggest": {
+                "ext-curl": "Allows access to Webdis when paired with phpiredis",
+                "ext-phpiredis": "Allows faster serialization and deserialization of the Redis protocol"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Predis\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniele Alessandri",
+                    "email": "suppakilla@gmail.com",
+                    "homepage": "http://clorophilla.net"
+                }
+            ],
+            "description": "Flexible and feature-complete Redis client for PHP and HHVM",
+            "homepage": "http://github.com/nrk/predis",
+            "keywords": [
+                "nosql",
+                "predis",
+                "redis"
+            ],
+            "time": "2016-06-16T16:22:20+00:00"
         },
         {
             "name": "psr/container",

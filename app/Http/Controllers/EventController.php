@@ -24,6 +24,7 @@ class EventController extends Controller
         $events = Event::where('due', '>', Carbon::now())
             ->where('user_id', '=', Auth::user()->id)
             ->orderBy('due', 'asc')
+            ->with('attendees')
             ->paginate(7);
 
         $sorted = [];
@@ -42,6 +43,7 @@ class EventController extends Controller
     {
         $events = Event::where('due', '>', Carbon::now())
             ->orderBy('due', 'asc')
+            ->with('attendees')
             ->paginate(7);
 
         $sorted = [];
@@ -60,6 +62,7 @@ class EventController extends Controller
     {
         $events = Event::where('due', '<', Carbon::now())
             ->orderBy('due', 'desc')
+            ->with('attendees')
             ->paginate(7);
 
         $sorted = [];

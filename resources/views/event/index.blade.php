@@ -50,7 +50,8 @@
 
                         <div class="panel-footer">
                             <span class="pull-left">Created by: {{ $event->creator->name }}</span>
-
+                            @
+                            <span class="pull-right">Attendees: {{$event->attendees->count()}}</span>
                             <div class="clearfix"></div>
                         </div>
                     </div>

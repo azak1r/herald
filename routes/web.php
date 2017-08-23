@@ -25,6 +25,11 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/announcement/{announcement}/remove', ['as' => 'announcements.destroy', 'uses' => 'AnnouncementController@destroy']);
 
     Route::get('/c/{id}', ['as' => 'events.countdown', 'uses' => 'EventController@countdown']);
+
+
+    Route::get('/settings', ['as' => 'settings.index', 'uses' => 'SettingsController@index']);
+    Route::put('/settings', ['as' => 'settings.update', 'uses' => 'SettingsController@update']);
+
 });
 
 Route::group(['prefix' => 'auth'], function(){
